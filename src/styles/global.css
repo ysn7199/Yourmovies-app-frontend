@@ -1,0 +1,13 @@
+/* Change input field background and text color */
+input {
+    background-color: #1F2937;
+    color: #333;
+    border: 1px solid #ccc;
+  }
+  
+  /* Change option text color in select dropdown */
+  select option {
+    color: #333;
+    background-color: #1F2937;
+  }
+  

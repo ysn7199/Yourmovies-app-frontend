@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '~@fortawesome/fontawesome-free/css/all.css';
+body {
+  font-family: 'Monserrat', sans-serif;
+}
+
+.custom-class {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family:'Monserrat' , -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* index.css or global.css */
+/* Change the background color of the entire body */
+body {
+  font-family: 'Montserrat';
+  background-color: #2C3E50; /* or use #34495E */
+  color: #ffffff; /* Default text color */
+}
+
+/* Navbar color changes */
+nav {
+  background-color: #1a202c; /* Dark grey background */
+  color: white;
+}
+
+nav a {
+  color: white; /* Links in the navbar */
+}
+
+nav a:hover {
+  color: #4FD1C5; /* Teal on hover */
+}
+
+/* Input field color changes */
+input, select, textarea {
+  background-color: #3B4A63; /* Lighter background */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px; /* Padding for all fields */
+  outline: none; /* Remove default outline */
+}
+
+input:focus, select:focus, textarea:focus {
+  background-color: #4B6A8C; /* Change background color on focus */
+  box-shadow: 0 0 5px rgba(62, 184, 229, 0.5); /* Light blue glow on focus */
+}
+
+
+
+/* Form background color change */
+
+
+/* Footer color changes */
+footer {
+  background-color: #1a202c; /* Dark grey background */
+  color: white; /* White text */
+}
+
+footer a {
+  color: white; /* Links in the footer */
+}
+
+footer a:hover {
+  color: #4FD1C5; /* Teal on hover */
+}
+
+
+/* Fading and sliding animations */
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideToLeft {
+  0% {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideNormal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.carousel-item {
+  width: 200px;
+  height: 300px;
+  opacity: 1;
+}
+
+.fade-out {
+  animation: slideLeft 1s forwards;
+}
+
+.slide-left {
+  animation: slideToLeft 1s forwards;
+}
+
+.fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+.slide-normal {
+  animation: slideNormal 1s forwards;
+}

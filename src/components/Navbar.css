@@ -1,0 +1,35 @@
+/* Fixed navbar styling */
+.navbar.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+}
+
+/* Original navbar styling */
+.navbar {
+  background-color: #1f2937; /* Background color for the navbar */
+}
+
+/* Add padding to the content below the navbar so it doesn't overlap */
+.main-content {
+  padding-top: 80px; /* Adjust this based on the navbar height */
+}
+
+.navbar {
+  transition: background-color  ease; /* Smooth transition */
+}
+
+.bg-transparent {
+  background-color: rgba(0, 0, 0, 0); /* Adjust the opacity for translucency */
+  position: fixed; /* Ensure it's always fixed at the top */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100; /* Make sure it's on top of the content */
+}
+
+.Logo{
+  font-family: 'Barrio', sans-serif;
+}
