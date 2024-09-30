@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
 import axios from 'axios';
 import imdbLogo from './IMDB_Logo_2016.svg.png'; // Update the path accordingly
 import './MovieDetails.css';
-import jwtDecode from 'jwt-decode'; // Ensure this is installed via npm
+import {jwtDecode} from 'jwt-decode'; // Ensure this is installed via npm
 
 const MovieDetails = () => {
   const { movieId } = useParams();
