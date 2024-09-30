@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
 import axios from 'axios';
 import imdbLogo from './IMDB_Logo_2016.svg.png'; // Update the path accordingly
 import './MovieDetails.css';
-import jwtDecode from 'jwt-decode';
+import { decode } from 'jwt-decode'; // Updated import statement
 
 
 const MovieDetails = () => {
@@ -26,7 +26,7 @@ const MovieDetails = () => {
       const token = getAuthToken();
       if (token) {
         try {
-          const decodedToken = jwtDecode(token);
+          const decodedToken = decode(token); // Use decode instead of jwtDecode
           if (decodedToken && decodedToken.username) {
             setUsername(decodedToken.username);
             setIsAuthenticated(true);
