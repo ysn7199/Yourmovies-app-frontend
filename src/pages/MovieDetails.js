@@ -1,14 +1,13 @@
+then modify that in all this 
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import imdbLogo from './IMDB_Logo_2016.svg.png'; // Update the path accordingly
 import './MovieDetails.css';
-import { decode } from 'jwt-decode'; // Updated import statement
-
+import {jwtDecode}  from 'jwt-decode'; // Ensure this is installed via npm
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const navigate = useNavigate(); // Initialize navigate
   const [movie, setMovie] = useState(null);
   const [watched, setWatched] = useState(false);
   const [liked, setLiked] = useState(false);
@@ -18,7 +17,7 @@ const MovieDetails = () => {
 
   const getAuthToken = () => {
     const token = localStorage.getItem('token');
-    return token;
+    return token; 
   };
 
   useEffect(() => {
@@ -26,7 +25,7 @@ const MovieDetails = () => {
       const token = getAuthToken();
       if (token) {
         try {
-          const decodedToken = decode(token); // Use decode instead of jwtDecode
+          const decodedToken = jwtDecode(token);
           if (decodedToken && decodedToken.username) {
             setUsername(decodedToken.username);
             setIsAuthenticated(true);
@@ -57,7 +56,7 @@ const MovieDetails = () => {
           },
         });
 
-        const { liked, watched, inWatchlist } = response.data;
+        const { liked, watched, inWatchlist } = response.data; // Assuming your API returns this structure
         setLiked(liked);
         setWatched(watched);
         setInWatchlist(inWatchlist);
@@ -71,16 +70,15 @@ const MovieDetails = () => {
     fetchUserActions();
   }, [movieId]);
 
-  // Handle action and redirect to login if user is not authenticated
+  // Handle action and update both backend and UI
   const handleAction = async (action) => {
-    const token = getAuthToken();
-    if (!token) {
-      navigate('/login'); // Redirect to login if not authenticated
-      return;
-    }
-
     try {
-      const newActions = { liked, watched, inWatchlist };
+      const token = getAuthToken();
+      if (!token) {
+        throw new Error('Token not found');
+      }
+
+      const newActions = { liked, watched, inWatchlist }; // Capture current state
       if (action === 'watched') newActions.watched = true;
       if (action === 'like') newActions.liked = true;
       if (action === 'watchlist') newActions.inWatchlist = true;
