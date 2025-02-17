@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get(`/api/movies?page=${currentPage}`);
+        const response = await axios.get(`https://yourmovies-app-backend.onrender.com/api/movies?page=${currentPage}`);
         setMovies(response.data.movies);
         setTotalPages(response.data.totalPages);
       } catch (error) {
